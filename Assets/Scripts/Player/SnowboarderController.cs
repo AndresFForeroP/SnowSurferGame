@@ -69,8 +69,6 @@ public class SnowboarderController : MonoBehaviour
     public System.Action OnDied;
     public System.Action<float> OnSpeedChanged;
 
-    private Collider2D basePhysicsCollider;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

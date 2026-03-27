@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     private Label trickLabel;
     private Label comboLabel;
     private Label trickNameLabel;
-    private VisualElement speedBar;
     private VisualElement speedBarFill;
     private Label messagePanel;     // Added for Powerup
 

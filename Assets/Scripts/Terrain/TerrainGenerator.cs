@@ -54,8 +54,6 @@ public class TerrainGenerator : MonoBehaviour
     [SerializeField] private float cloudMaxY = 18f;
 
     [Header("Collectibles & Powerups")]
-    [SerializeField] private float collectibleSpawnChance = 0.15f;
-    [SerializeField] private float collectibleHeight = 1.5f;
     [SerializeField] private float speedBoostChance = 0.06f;
     [SerializeField] private float speedBoostHeight = 1.8f;
 
@@ -439,11 +437,6 @@ public class TerrainGenerator : MonoBehaviour
         col.size = new Vector2(endX - startX + 2f, 18f);
     }
 
-    private void CreateCliffWarning(float x, float y)
-    {
-        // Removed warning triangles per user request
-    }
-
     // ===================== TREES (dynamic height + forests) =====================
 
     private void SpawnTreesOnSegment(Vector2[] points)
@@ -719,21 +712,5 @@ public class TerrainGenerator : MonoBehaviour
         t.Apply();
         _circle = Sprite.Create(t, new Rect(0, 0, s, s), Vector2.one * 0.5f, s);
         return _circle;
-    }
-
-    private Sprite _triangle;
-    private Sprite CreateTriangleSprite()
-    {
-        if (_triangle != null) return _triangle;
-        int s = 32; Texture2D t = new Texture2D(s, s, TextureFormat.RGBA32, false);
-        for (int x = 0; x < s; x++)
-            for (int y = 0; y < s; y++)
-            {
-                float nX = (float)x / s, nY = (float)y / s;
-                t.SetPixel(x, y, (nY < 1f && nX > 0.5f - nY * 0.5f && nX < 0.5f + nY * 0.5f) ? Color.white : Color.clear);
-            }
-        t.Apply();
-        _triangle = Sprite.Create(t, new Rect(0, 0, s, s), Vector2.one * 0.5f, s);
-        return _triangle;
     }
 }
