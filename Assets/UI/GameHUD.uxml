@@ -1,0 +1,71 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Styles.uss" />
+    <ui:VisualElement name="hud-root" class="hud-root">
+
+        <!-- Top bar: Score + Distance -->
+        <ui:VisualElement name="top-bar" class="top-bar">
+            <ui:VisualElement class="score-container">
+                <ui:Label text="SCORE" class="score-header" />
+                <ui:Label name="score-label" text="0" class="score-label" />
+            </ui:VisualElement>
+            <ui:VisualElement class="distance-container">
+                <ui:Label name="distance-label" text="0m" class="distance-label" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- Mute Button -->
+        <ui:Button name="mute-button" text="🔊" class="mute-button" />
+
+        <!-- Speed bar -->
+        <ui:VisualElement name="speed-bar" class="speed-bar">
+            <ui:VisualElement name="speed-bar-fill" class="speed-bar-fill" />
+        </ui:VisualElement>
+
+        <!-- Center trick display -->
+        <ui:VisualElement class="trick-display">
+            <ui:Label name="message-panel" text="" class="message-panel" />
+            <ui:Label name="trick-name-label" text="" class="trick-name-label" />
+            <ui:Label name="trick-label" text="" class="trick-label" />
+            <ui:Label name="combo-label" text="" class="combo-label" />
+        </ui:VisualElement>
+
+        <!-- Controls hint (bottom left) -->
+        <ui:VisualElement class="controls-hint">
+            <ui:Label text="SPACE: Jump | A/D: Spin" class="controls-text" />
+        </ui:VisualElement>
+
+        <!-- Game Over Panel -->
+        <ui:VisualElement name="game-over-panel" class="game-over-panel">
+            <ui:Label name="game-over-title" text="GAME OVER" class="game-over-title" />
+            <ui:Label name="final-score-label" text="SCORE: 0" class="final-score-label" />
+            <ui:Label name="high-score-label" text="BEST: 0" class="high-score-label" />
+            <ui:Button name="restart-button" text="PLAY AGAIN" class="restart-button" />
+        </ui:VisualElement>
+
+        <!-- Main Menu Panel -->
+        <ui:VisualElement name="main-menu-panel" class="main-menu-panel" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.8); align-items: center; justify-content: center;">
+            <ui:Label text="SNOW SURFER" style="font-size: 80px; -unity-font-style: bold; color: white; margin-bottom: 50px; text-shadow: 2px 2px 5px rgba(0,0,0,0.5);" />
+            <ui:Button name="play-button" text="JUGAR" style="font-size: 40px; padding: 20px 60px; background-color: #2196F3; color: white; border-radius: 15px;" />
+        </ui:VisualElement>
+
+        <!-- Character Selection Panel -->
+        <ui:VisualElement name="char-select-panel" class="char-select-panel" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,20,40,0.9); align-items: center; justify-content: center; display: none;">
+            <ui:Label text="CHOOSE YOUR RIDER" style="font-size: 60px; -unity-font-style: bold; color: white; margin-bottom: 50px;" />
+            <ui:VisualElement name="char-buttons-container" class="char-buttons-container">
+                <ui:Button name="btn-frog" class="char-btn btn-frog-style">
+                    <ui:VisualElement class="char-icon" style="background-image: url('project://database/Assets/Resources/FrogIcon.png');" />
+                    <ui:Label text="FROG" class="char-btn-label" />
+                </ui:Button>
+                <ui:Button name="btn-dino" class="char-btn btn-dino-style">
+                    <ui:VisualElement class="char-icon" style="background-image: url('project://database/Assets/Resources/DinoIcon.png');" />
+                    <ui:Label text="DINO" class="char-btn-label" />
+                </ui:Button>
+                <ui:Button name="btn-mage" class="char-btn btn-mage-style">
+                    <ui:VisualElement class="char-icon" style="background-image: url('project://database/Assets/Resources/IconMage.png');" />
+                    <ui:Label text="MAGE" class="char-btn-label" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

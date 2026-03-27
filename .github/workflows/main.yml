@@ -1,0 +1,61 @@
+name: Unity WebGL Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  buildWebGL:
+    name: Build for WebGL 🖥️
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache Library
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-${{ runner.os }}-WebGL-${{ hashFiles('Assets/**','Packages/**','ProjectSettings/**') }}
+          restore-keys: |
+            Library-${{ runner.os }}-WebGL-
+
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v4.4.0
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: 6000.2.13f1
+          targetPlatform: WebGL
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: WebGLBuild
+          path: build/WebGL/WebGL
+
+  deploy:
+    name: Deploy to Github Pages 🚀
+    needs: buildWebGL
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: WebGLBuild
+          path: build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # ← no necesita DEPLOY_TOKEN porque es el mismo repo
+          publish_branch: WebGL                       # ← rama destino dentro del mismo repo
+          publish_dir: build
+          force_orphan: true

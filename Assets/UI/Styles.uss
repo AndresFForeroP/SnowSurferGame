@@ -1,0 +1,275 @@
+/* ============================================
+   SNOW SURFER - Game HUD Stylesheet
+   Premium arcade aesthetic with glassmorphism
+   ============================================ */
+
+/* --- Root container --- */
+.hud-root {
+    flex-grow: 1;
+    padding: 14px;
+}
+
+/* --- Top Bar: Score + Distance --- */
+.top-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 8px 16px;
+}
+
+.score-container {
+    align-items: flex-end;
+}
+
+.score-header {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 3px;
+    -unity-font-style: bold;
+}
+
+.score-label {
+    font-size: 52px;
+    color: white;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.6);
+    transition-property: scale;
+    transition-duration: 0.15s;
+}
+
+.score-flash {
+    scale: 1.15 1.15;
+}
+
+.distance-container {
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 6px 14px;
+}
+
+.distance-label {
+    font-size: 28px;
+    color: rgba(255, 255, 255, 0.9);
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- Speed Bar --- */
+.speed-bar {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    translate: -50% 0;
+    width: 200px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.speed-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: rgb(80, 180, 255);
+    border-radius: 4px;
+    transition-property: width, background-color;
+    transition-duration: 0.2s;
+}
+
+/* --- Trick Display (center screen) --- */
+.trick-display {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    translate: -50% -50%;
+    align-items: center;
+}
+
+/* --- Message Panel (Powerups) --- */
+.message-panel {
+    position: absolute;
+    top: -100px;
+    font-size: 64px;
+    color: rgb(100, 255, 100);
+    -unity-font-style: bold;
+    -unity-text-outline-width: 4px;
+    -unity-text-outline-color: rgba(0, 50, 0, 0.9);
+    transition-property: opacity, scale;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-back;
+}
+
+.trick-name-label {
+    font-size: 36px;
+    color: rgb(80, 255, 230);
+    -unity-font-style: bold;
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgba(0, 20, 80, 0.9);
+    margin-bottom: 8px;
+    transition-property: opacity, scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-back;
+}
+
+.trick-label {
+    font-size: 56px;
+    color: rgb(255, 230, 40);
+    -unity-font-style: bold;
+    -unity-text-outline-width: 4px;
+    -unity-text-outline-color: rgba(60, 20, 0, 0.9);
+    transition-property: opacity, scale;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-bounce;
+}
+
+.combo-label {
+    font-size: 28px;
+    color: rgb(255, 100, 30);
+    -unity-font-style: bold;
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.8);
+    margin-top: 8px;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.pop-animation {
+    scale: 1.25 1.25;
+}
+
+/* --- Controls Hint (bottom left) --- */
+.controls-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+}
+
+.controls-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+    -unity-font-style: italic;
+}
+
+/* --- Game Over Panel --- */
+.game-over-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 15, 35, 0.85);
+    align-items: center;
+    justify-content: center;
+}
+
+.game-over-title {
+    font-size: 72px;
+    color: rgb(255, 80, 80);
+    -unity-font-style: bold;
+    margin-bottom: 16px;
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 4px;
+}
+
+.final-score-label {
+    font-size: 42px;
+    color: white;
+    -unity-font-style: bold;
+    margin-bottom: 8px;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: rgba(0, 0, 0, 0.6);
+}
+
+.high-score-label {
+    font-size: 24px;
+    color: rgb(255, 220, 50);
+    -unity-font-style: bold;
+    margin-bottom: 30px;
+}
+
+.restart-button {
+    font-size: 28px;
+    color: white;
+    background-color: rgb(40, 120, 220);
+    border-radius: 16px;
+    padding: 14px 50px;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.2);
+    -unity-font-style: bold;
+    letter-spacing: 2px;
+    transition-property: background-color, scale;
+    transition-duration: 0.2s;
+}
+
+.restart-button:hover {
+    background-color: rgb(60, 150, 255);
+    scale: 1.05 1.05;
+}
+
+.restart-button:active {
+    background-color: rgb(30, 100, 200);
+    scale: 0.97 0.97;
+}
+
+/* --- Mute Button --- */
+.mute-button {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    font-size: 80px;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-width: 0;
+    color: white;
+    -unity-font-style: bold;
+    transition-property: scale;
+    transition-duration: 0.2s;
+}
+
+.mute-button:hover {
+    scale: 1.1 1.1;
+}
+
+/* --- Character Selection --- */
+.char-buttons-container {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 60%;
+}
+
+.char-btn {
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    width: 250px;
+    transition-property: scale;
+    transition-duration: 0.2s;
+}
+
+.char-btn:hover {
+    scale: 1.05 1.05;
+}
+
+.char-btn-label {
+    font-size: 30px;
+    color: white;
+    -unity-font-style: bold;
+    margin-top: 10px;
+}
+
+.char-icon {
+    width: 150px;
+    height: 150px;
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.btn-frog-style { background-color: #4CAF50; border-width: 0; }
+.btn-dino-style { background-color: #FF9800; border-width: 0; }
+.btn-mage-style { background-color: #9C27B0; border-width: 0; }
